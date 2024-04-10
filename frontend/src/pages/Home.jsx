@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
-import BooksTable from "../components/home/BooksTable";
-import BooksCard from "../components/home/BooksCard";
-import Header from "./Header";
-import Hero from "./Hero";
-import Featured from "./Featured";
-import Category from "./Category";
-import Footer from "./Footer";
+import BooksTable from "../components/books/BooksTable";
+import BooksCard from "../components/books/BooksCard";
+import Header from "../components/home/Header";
+import Hero from "../components/home/Hero";
+import Featured from "../components/home/Featured";
+import Category from "../components/home/Category";
+import Review from "../components/home/Review"
+import Footer from "../components/home/Footer";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -39,6 +40,7 @@ const Home = () => {
       <Featured />
       <Category />
       <Footer />
+      <review />
       <div className="p-4">
         <div className="flex justify-center items-center gap-x-4">
           <button
