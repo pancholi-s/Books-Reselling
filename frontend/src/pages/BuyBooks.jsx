@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Spinner from '../components/Spinner';
-import { Link } from 'react-router-dom';
-import { MdOutlineAddBox } from 'react-icons/md';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Spinner from "../components/Spinner";
+import { Link } from "react-router-dom";
+import { MdOutlineAddBox } from "react-icons/md";
 
 function BuyBooks() {
   const [books, setBooks] = useState([]);
@@ -11,7 +11,7 @@ function BuyBooks() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get('http://localhost:5555/books')
+      .get("http://localhost:5555/books")
       .then((response) => {
         setBooks(response.data.data);
         setLoading(false);
@@ -23,39 +23,53 @@ function BuyBooks() {
   }, []);
 
   const handleBuy = async (bookId) => {
-    const isConfirmed = window.confirm('Do you want to buy this book?');
+    const isConfirmed = window.confirm("Do you want to buy this book?");
     if (isConfirmed) {
       try {
         await axios.delete(`http://localhost:5555/books/${bookId}`);
-        setBooks(books.filter(book => book._id !== bookId));
+        setBooks(books.filter((book) => book._id !== bookId));
       } catch (error) {
-        console.log('Error buying book:', error);
+        console.log("Error buying book:", error);
       }
     }
   };
 
   return (
-    <div className='p-4'>
-      <div className='flex justify-between items-center'>
-        <h1 className='text-3xl my-8'>Books List</h1>
-        <Link to='/books/create'>
-          <MdOutlineAddBox className='text-sky-800 text-4xl' />
-        </Link>
-      </div>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {books.map((book) => (
-            <div key={book._id} className="card">
-              <h3 className='border border-gray-600 py-1 text-center text-lg w-1/2 rounded mb-2'>{book.title}</h3>
-              <p className='border border-gray-600 py-1 text-center mb-2 text-lg w-1/2 rounded'>{book.author}</p>
-              <button className='px-4 py-1 hover:bg-green-900 ml-16 text-white rounded-sm bg-green-600' onClick={() => handleBuy(book._id)}>Buy</button>
+    <section className="featured" id="featured">
+      <h1 className="heading">
+        {" "}
+        <span>Books</span>{" "}
+      </h1>
+      <div className="grid grid-cols-3 gap-4">
+        {books.map((book) => {
+          return (
+            <div key={book._id} className="swiper featured-slider ">
+              <div className="swiper-wrapper">
+                <div className="swiper-slide box">
+                  <div className="icons">
+                    <a href="#" className="fas fa-search"></a>
+                    <a href="#" className="fas fa-eye"></a>
+                  </div>
+                  <div className="image flex justify-center">
+                    <a href="./product.html">
+                      {" "}
+                      <img src={book.coverImage} alt="" />{" "}
+                    </a>
+                  </div>
+                  <div className="content">
+                    <h3>{book.title}</h3>
+                    <h3>{`Rs ${book.cost}`}</h3>
+                    <button className="btn" onClick={() => handleBuy(book._id)}>
+                      Buy
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
-      )}
-    </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 

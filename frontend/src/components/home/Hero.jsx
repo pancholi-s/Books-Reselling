@@ -35,10 +35,10 @@ export default function Hero() {
               great deals on a wide range of books. Shop for these books from
               top authors and avail hugely discounted prices
             </p>
-            <a href="http://localhost:5173/books/buy/:id" className="btn">
+            <a href="http://localhost:5173/books/buy/" className="btn">
               Buy
             </a>
-            <a href="http://localhost:5173/" className="btn">
+            <a href="http://localhost:5173/books/sell" className="btn">
               Sell
             </a>
           </div>

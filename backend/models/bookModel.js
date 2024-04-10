@@ -18,7 +18,24 @@ const bookSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    
+    isFeatured: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    coverImage: {
+      type: String,
+      required: true,
+    },
+    isSold: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    cost: {
+      type: Number,
+      required: true,
+    },
   },
   {
     timestamps: true,
