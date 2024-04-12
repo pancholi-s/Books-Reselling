@@ -1,8 +1,9 @@
-import express from 'express';
+import express from "express";
 import { PORT, mongoDBURL } from "./config.js";
-import mongoose from 'mongoose';
-import booksRoute from './routes/booksRoute.js';
-import cors from 'cors';
+import mongoose from "mongoose";
+import booksRoute from "./routes/booksRoute.js";
+import authRoute from "./routes/UserRoute.js";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
@@ -14,7 +15,8 @@ app.get("/", (request, response) => {
   return response.status(234).send("Welcome To PICT books");
 });
 
-app.use('/books', booksRoute);
+app.use("/books", booksRoute);
+app.use("/auth", authRoute);
 
 mongoose
   .connect(mongoDBURL)
