@@ -1,9 +1,12 @@
 import express from "express";
-import { User } from "../models/User";
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
+import { User } from "../models/User.js";
 
-const JWT_SECRET = process.env.JWT_SECRET; // Secret key from the .env file
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+
+const router = express.Router();
+
+const JWT_SECRET = "secret"; // Secret key from the .env file
 
 // Register a new user
 router.post("/register", async (req, res) => {

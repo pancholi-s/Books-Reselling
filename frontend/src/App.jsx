@@ -9,6 +9,7 @@ import BuyBooks from "./pages/BuyBooks";
 import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import SellBook from "./pages/SellBook";
+import SignUp from "./pages/SignUp";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Route path="/books/create" element={<CreateBook />} />
       <Route path="/books/sell" element={<SellBook />} />
       <Route path="/books/login" element={<Login />} />
+      <Route path="/books/signUp" element={<SignUp />} />
       <Route path="/books/details/:id" element={<ShowBook />} />
       <Route path="/books/buy/" element={<BuyBooks />} />
       <Route path="/books/admin/:id" element={<Admin />} />

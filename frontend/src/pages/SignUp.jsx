@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Add this line
@@ -9,7 +9,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:5555/auth/login", {
+    fetch("http://localhost:5555/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ function Login() {
         if (data.success) {
           localStorage.setItem("authToken", data.authToken);
           navigate("/"); // replace '/main' with the path to your main page
-          alert("Login successful");
+          alert("Registered successful");
         } else {
           alert(data.error);
         }
@@ -39,7 +39,7 @@ function Login() {
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-              Sign in to your account
+              Sign Up to your account
             </h1>
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
@@ -81,7 +81,7 @@ function Login() {
                 type="submit"
                 className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               >
-                Sign in
+                Sign Up
               </button>
             </form>
           </div>
@@ -91,4 +91,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;

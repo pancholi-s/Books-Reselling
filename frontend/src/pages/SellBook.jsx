@@ -18,8 +18,12 @@ export default function SellBook() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState("table");
+  const authToken = localStorage.getItem("authToken");
 
   useEffect(() => {
+    if (!authToken) {
+      return;
+    }
     setLoading(true);
     axios
       .get("http://localhost:5555/books")
@@ -32,6 +36,19 @@ export default function SellBook() {
         setLoading(false);
       });
   }, []);
+  if (!authToken) {
+    return (
+      <>
+        <p>Please login first</p>
+        <Link to="/books/login">
+          <button className="btn">Login</button>
+        </Link>
+        <Link to="/books/signUp">
+          <button className="btn">Sign Up</button>
+        </Link>
+      </>
+    );
+  }
   return (
     <div className="p-4">
       <div className="flex justify-center items-center gap-x-4"></div>
