@@ -39,8 +39,8 @@ const Home = () => {
       <Hero />
       <Featured />
       {/* <Category /> */}
+      <Review />
       <Footer />
-      <review />
 
       {loading ? (
         <Spinner />

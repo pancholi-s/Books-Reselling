@@ -51,63 +51,6 @@ export default function Review() {
 
           <div className="swiper-slide box">
             <img
-              src="https://raw.githubusercontent.com/KordePriyanka/Books4MU-Book-Store-Website-/main/image/pic-3.png"
-              alt=""
-            />
-            <h3>Raghu </h3>
-            <p>
-              Customer Service is good. Greetings to customer and making the
-              required Books available to Customers is very good.
-            </p>
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-          </div>
-          <div className="swiper-slide box">
-            <img
-              src="https://raw.githubusercontent.com/KordePriyanka/Books4MU-Book-Store-Website-/main/image/pic-4.png"
-              alt=""
-            />
-            <h3>Pooja </h3>
-            <p>
-              This book centre have large amount of a books. The engineering
-              study material all semester books are available.then the peacefull
-              and nice book centre.
-            </p>
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-          </div>
-
-          <div className="swiper-slide box">
-            <img
-              src="https://raw.githubusercontent.com/KordePriyanka/Books4MU-Book-Store-Website-/main/image/pic-5.png"
-              alt=""
-            />
-            <h3>Abhinav </h3>
-            <p>
-              I migrated to the online platform on Just books because I was
-              finding it difficult to go to their libraries before closing time.
-            </p>
-            <div className="stars">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-            </div>
-          </div>
-
-          <div className="swiper-slide box">
-            <img
               src="https://raw.githubusercontent.com/KordePriyanka/Books4MU-Book-Store-Website-/main/image/pic-6.png"
               alt=""
             />

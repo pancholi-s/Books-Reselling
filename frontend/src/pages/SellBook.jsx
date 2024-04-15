@@ -38,15 +38,19 @@ export default function SellBook() {
   }, []);
   if (!authToken) {
     return (
-      <>
-        <p>Please login first</p>
-        <Link to="/books/login">
-          <button className="btn">Login</button>
+      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+        <p className="mb-4 text-lg text-gray-700">Please login first</p>
+        <Link to="/books/login" className="mb-2">
+          <button className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Login
+          </button>
         </Link>
         <Link to="/books/signUp">
-          <button className="btn">Sign Up</button>
+          <button className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Sign Up
+          </button>
         </Link>
-      </>
+      </div>
     );
   }
   return (
