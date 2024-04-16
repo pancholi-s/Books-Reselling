@@ -15,10 +15,10 @@ export default function Review() {
               src="https://raw.githubusercontent.com/KordePriyanka/Books4MU-Book-Store-Website-/main/image/pic-1.png"
               alt=""
             />
-            <h3>ujjwal </h3>
+            <h3>Ujjwal </h3>
             <p>
-              First of all it customer service is excellent. We get all author
-              book for Mumbai University. People should try here affordable and
+              First of all it customer service is excellent. We get all authored
+              book for PICT. People should try here for affordable and
               best price.
             </p>
             <div className="stars">
@@ -35,7 +35,7 @@ export default function Review() {
               src="https://raw.githubusercontent.com/KordePriyanka/Books4MU-Book-Store-Website-/main/image/pic-2.png"
               alt=""
             />
-            <h3>marry </h3>
+            <h3>Mary</h3>
             <p>
               Best book store almost all books are available for prepartion of
               exam related or other books are available on reaonable price also.
@@ -54,7 +54,7 @@ export default function Review() {
               src="https://raw.githubusercontent.com/KordePriyanka/Books4MU-Book-Store-Website-/main/image/pic-6.png"
               alt=""
             />
-            <h3>Sidddhi </h3>
+            <h3>Siddhi </h3>
             <p>
               I love the product because it is very easy to find. The book are
               in really organized manner you can easily find the book you want.

@@ -8,7 +8,7 @@ export default function Header() {
         <div class="header-1">
           <a href="#" class="logo">
             {" "}
-            <i class="fas fa-book"></i> Books4MU{" "}
+            <i class="fas fa-book"></i> PICTbooks{" "}
           </a>
 
           <form action="" class="search-form">
@@ -30,8 +30,8 @@ export default function Header() {
 
         <div class="header-2">
           <nav class="navbar">
-            <a href="./index.html">home</a>
-            <a href="#featured">featured</a>
+            <a href="./index.html">Home</a>
+            <a href="#featured">Featured</a>
             <a href="#reviews">Reviews</a>
             {authToken ? (
               <a
@@ -45,8 +45,8 @@ export default function Header() {
               </a>
             ) : (
               <>
-                <a href="/books/login">login</a>
-                <a href="./books/signUp">signup</a>
+                <a href="/books/login">Login</a>
+                <a href="./books/signUp">Signup</a>
               </>
             )}
           </nav>
