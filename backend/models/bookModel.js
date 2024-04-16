@@ -36,6 +36,18 @@ const bookSchema = mongoose.Schema(
       type: Number,
       required: true,
     },
+    sellerName: {
+      type: String,
+      default: "Anonymous",
+    },
+    sellerEmail: {
+      type: String,
+      default: "Anonymous",
+    },
+    sellerPhone: {
+      type: Number,
+      default: 9988191289,
+    },
   },
   {
     timestamps: true,

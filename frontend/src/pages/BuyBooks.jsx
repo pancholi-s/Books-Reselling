@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Spinner from "../components/Spinner";
 import { Link } from "react-router-dom";
@@ -8,6 +9,8 @@ function BuyBooks() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const authToken = localStorage.getItem("authToken");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!authToken) {
@@ -27,15 +30,16 @@ function BuyBooks() {
   }, []);
 
   const handleBuy = async (bookId) => {
-    const isConfirmed = window.confirm("Do you want to buy this book?");
-    if (isConfirmed) {
-      try {
-        await axios.delete(`http://localhost:5555/books/${bookId}`);
-        setBooks(books.filter((book) => book._id !== bookId));
-      } catch (error) {
-        console.log("Error buying book:", error);
-      }
-    }
+    navigate(`/books/buy/${bookId}`); // Redirect to the buy page for the book
+    // const isConfirmed = window.confirm("Do you want to buy this book?");
+    // if (isConfirmed) {
+    //   try {
+    //     await axios.delete(`http://localhost:5555/books/${bookId}`);
+    //     setBooks(books.filter((book) => book._id !== bookId));
+    //   } catch (error) {
+    //     console.log("Error buying book:", error);
+    //   }
+    // }
   };
   if (!authToken) {
     return (

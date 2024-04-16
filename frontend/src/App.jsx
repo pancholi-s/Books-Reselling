@@ -10,6 +10,7 @@ import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import SellBook from "./pages/SellBook";
 import SignUp from "./pages/SignUp";
+import BookOrder from "./components/books/BookOrder";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
       <Route path="/books/signUp" element={<SignUp />} />
       <Route path="/books/details/:id" element={<ShowBook />} />
       <Route path="/books/buy/" element={<BuyBooks />} />
+      <Route path="/books/buy/:id" element={<BookOrder />} />
       <Route path="/books/admin/:id" element={<Admin />} />
       <Route path="/books/edit/:id" element={<EditBook />} />
       <Route path="/books/delete/:id" element={<DeleteBook />} />

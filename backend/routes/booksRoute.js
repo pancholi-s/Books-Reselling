@@ -26,6 +26,9 @@ router.post("/", async (request, response) => {
       isFeatured: request.body.isFeatured,
       isSold: request.body.isSold,
       cost: request.body.cost,
+      sellerName: request.body.sellerName,
+      sellerEmail: request.body.sellerEmail,
+      sellerPhone: request.body.sellerPhone,
     };
 
     const book = await Book.create(newBook);

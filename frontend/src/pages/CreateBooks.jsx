@@ -12,6 +12,9 @@ const CreateBooks = () => {
   const [description, setDescription] = useState("");
   const [coverImage, setCoverImage] = useState("");
   const [cost, setCost] = useState(0);
+  const [sellerName, setSellerName] = useState("");
+  const [sellerEmail, setSellerEmail] = useState("");
+  const [sellerPhone, setSellerPhone] = useState(0);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
@@ -24,6 +27,9 @@ const CreateBooks = () => {
       description,
       coverImage,
       cost,
+      sellerName,
+      sellerEmail,
+      sellerPhone,
     };
 
     setLoading(true);
@@ -98,6 +104,35 @@ const CreateBooks = () => {
             type="number"
             value={cost}
             onChange={(e) => setCost(e.target.value)}
+            className="border-2 border-gray-500 px-4 py-2  w-full "
+          />
+        </div>
+        <div className="my-4">
+          <label className="text-xl mr-4 text-gray-500">Seller Name</label>
+          <input
+            type="text"
+            value={sellerName}
+            onChange={(e) => setSellerName(e.target.value)}
+            className="border-2 border-gray-500 px-4 py-2  w-full "
+          />
+        </div>
+        <div className="my-4">
+          <label className="text-xl mr-4 text-gray-500">Seller Email</label>
+          <input
+            type="text"
+            value={sellerEmail}
+            onChange={(e) => setSellerEmail(e.target.value)}
+            className="border-2 border-gray-500 px-4 py-2  w-full "
+          />
+        </div>
+        <div className="my-4">
+          <label className="text-xl mr-4 text-gray-500">
+            Seller Phone number
+          </label>
+          <input
+            type="number"
+            value={sellerPhone}
+            onChange={(e) => setSellerPhone(e.target.value)}
             className="border-2 border-gray-500 px-4 py-2  w-full "
           />
         </div>
