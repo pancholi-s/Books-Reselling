@@ -1,35 +1,46 @@
-import React from "react";
+import React, { useState } from "react"; // Ensure useState is imported
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const authToken = localStorage.getItem("authToken");
+
+  const [searchTerm, setSearchTerm] = useState(""); // State to hold the search term
+  const navigate = useNavigate(); // To redirect to the search results page
+
+  const handleSearch = (event) => {
+    event.preventDefault(); // Prevent form submission from reloading the page
+    
+    // Redirect to a new page with the search query as part of the URL
+    navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
+  };
+
   return (
     <>
-      <header class="header">
-        <div class="header-1">
-          <a href="#" class="logo">
-            {" "}
-            <i class="fas fa-book"></i> PICTbooks{" "}
+      <header className="header">
+        <div className="header-1">
+          <a href="#" className="logo">
+            <i className="fas fa-book"></i> PICTbooks
           </a>
 
-          <form action="" class="search-form">
-            <input
+          <form className="search-form" onSubmit={handleSearch}>
+          <input
               type="search"
-              name=""
-              placeholder="search here..."
-              id="search-box"
+              placeholder="Search here..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)} // Update state on input change
             />
-            <label for="search-box" class="fas fa-search"></label>
+            <button type="submit" className="fas fa-search"></button>
           </form>
 
-          <div class="icons">
-            <div id="search-btn" class="fas fa-search"></div>
-            <a href="./cart.html" class="fas fa-shopping-cart"></a>
-            <div id="login-btn" class="fas fa-user"></div>
+          <div className="icons">
+            <div id="search-btn" className="fas fa-search"></div>
+            <a href="./cart.html" className="fas fa-shopping-cart"></a>
+            <div id="login-btn" className="fas fa-user"></div>
           </div>
         </div>
 
-        <div class="header-2">
-          <nav class="navbar">
+        <div className="header-2">
+          <nav className="navbar">
             <a href="./index.html">Home</a>
             <a href="#featured">Featured</a>
             <a href="#reviews">Reviews</a>
@@ -41,7 +52,7 @@ export default function Header() {
                   window.location.reload();
                 }}
               >
-                logout
+                Logout
               </a>
             ) : (
               <>
@@ -53,12 +64,12 @@ export default function Header() {
         </div>
       </header>
 
-      <nav class="bottom-navbar">
-        <a href="#home" class="fas fa-home"></a>
-        <a href="#featured" class="fas fa-list"></a>
-        <a href="#arrivals" class="fas fa-tags"></a>
-        <a href="#reviews" class="fas fa-comments"></a>
-        <a href="#feedback" class="fas fa-feedback"></a>
+      <nav className="bottom-navbar">
+        <a href="#home" className="fas fa-home"></a>
+        <a href="#featured" className="fas fa-list"></a>
+        <a href="#arrivals" className="fas fa-tags"></a>
+        <a href="#reviews" className="fas fa-comments"></a>
+        <a href="#feedback" className="fas fa-feedback"></a>
       </nav>
     </>
   );

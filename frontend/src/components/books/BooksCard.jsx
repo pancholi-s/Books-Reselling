@@ -8,11 +8,6 @@ const BooksCard = ({ books }) => {
       {books.map((item) => (
         <div key={item._id} className="card">
           <BookSingleCard book={item} />
-          <div className="actions">
-            <Link to={`/books/details/${item._id}`}>
-              <BsInfoCircle className='text-2xl text-green-800' />
-            </Link>
-          </div>
         </div>
       ))}
     </div>

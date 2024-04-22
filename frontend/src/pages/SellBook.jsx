@@ -55,13 +55,19 @@ export default function SellBook() {
   }
   return (
     <div className="p-4">
-      <div className="flex justify-center items-center gap-x-4"></div>
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl my-8">Books List</h1>
+      {/* Centering the h1 within its parent container */}
+      <div className="flex justify-center my-8">
+        <h1 className="text-3xl">BOOKS LIST</h1>
+      </div>
+
+      {/* Adding a separate section for the Add button with justify-end */}
+      <div className="flex justify-end">
         <Link to="/books/create">
           <MdOutlineAddBox className="text-sky-800 text-4xl" />
         </Link>
       </div>
+
+      {/* The BooksCard component */}
       {<BooksCard books={books} />}
     </div>
   );

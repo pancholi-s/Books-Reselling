@@ -69,6 +69,38 @@ router.get("/:id", async (request, response) => {
   }
 });
 
+//search endpoint
+router.get("/search", async (request, response) => {
+  try {
+    const { title, author, publishYear } = request.query; // Extract search parameters from query string
+    
+    // Create a query object that will only contain the search parameters that are provided
+    const query = {};
+
+    if (title) {
+      query.title = { $regex: title, $options: "i" }; // Case-insensitive regex match for title
+    }
+
+    if (author) {
+      query.author = { $regex: author, $options: "i" }; // Case-insensitive regex match for author
+    }
+
+    if (publishYear) {
+      query.publishYear = publishYear; // Exact match for publish year
+    }
+
+    const books = await Book.find(query); // Find books that match the search criteria
+    
+    return response.status(200).json({
+      count: books.length,
+      data: books,
+    });
+  } catch (error) {
+    console.error(error.message);
+    response.status(500).send({ message: error.message });
+  }
+});
+
 // Route for Update a Book
 router.put("/:id", async (request, response) => {
   try {
