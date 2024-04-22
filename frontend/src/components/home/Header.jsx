@@ -9,9 +9,11 @@ export default function Header() {
 
   const handleSearch = (event) => {
     event.preventDefault(); // Prevent form submission from reloading the page
-    
-    // Redirect to a new page with the search query as part of the URL
-    navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
+
+    if (searchTerm.trim() !== "") {
+      // Additional check to ensure searchTerm is not empty
+      navigate(`books/search?query=${encodeURIComponent(searchTerm)}`);
+    }
   };
 
   return (
@@ -23,7 +25,7 @@ export default function Header() {
           </a>
 
           <form className="search-form" onSubmit={handleSearch}>
-          <input
+            <input
               type="search"
               placeholder="Search here..."
               value={searchTerm}

@@ -55,25 +55,11 @@ router.get("/", async (request, response) => {
   }
 });
 
-// Route for Get One Book from database by id
-router.get("/:id", async (request, response) => {
-  try {
-    const { id } = request.params;
-
-    const book = await Book.findById(id);
-
-    return response.status(200).json(book);
-  } catch (error) {
-    console.log(error.message);
-    response.status(500).send({ message: error.message });
-  }
-});
-
 //search endpoint
 router.get("/search", async (request, response) => {
   try {
     const { title, author, publishYear } = request.query; // Extract search parameters from query string
-    
+
     // Create a query object that will only contain the search parameters that are provided
     const query = {};
 
@@ -90,13 +76,27 @@ router.get("/search", async (request, response) => {
     }
 
     const books = await Book.find(query); // Find books that match the search criteria
-    
+
     return response.status(200).json({
       count: books.length,
       data: books,
     });
   } catch (error) {
     console.error(error.message);
+    response.status(500).send({ message: error.message });
+  }
+});
+
+// Route for Get One Book from database by id
+router.get("/:id", async (request, response) => {
+  try {
+    const { id } = request.params;
+
+    const book = await Book.findById(id);
+
+    return response.status(200).json(book);
+  } catch (error) {
+    console.log(error.message);
     response.status(500).send({ message: error.message });
   }
 });
