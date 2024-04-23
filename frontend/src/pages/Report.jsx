@@ -30,7 +30,7 @@ export default function Report() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 gap-8">
           {report.map((book, index) => (
             <div
               key={index}
@@ -38,14 +38,15 @@ export default function Report() {
             >
               <div className="px-8 py-6 bg-indigo-600 text-white flex items-center justify-between">
                 <h2 className="text-2xl font-semibold truncate">
-                  {book.title}
+                  {`${book.title} (Rs ${book.cost})`}
                 </h2>
                 <span className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold">
                   Sold
                 </span>
               </div>
-              <div className="px-8 py-6">
-                <div className="bg-gray-100 p-6 rounded-2xl mb-6">
+
+              <div className="px-8 py-6 flex justify-between">
+                <div className="bg-gray-100 p-6 rounded-2xl">
                   <h3 className="text-2xl font-semibold mb-3 text-gray-800">
                     Seller Details
                   </h3>
@@ -55,7 +56,20 @@ export default function Report() {
                       {book.sellerName || "N/A"}
                     </span>
                   </p>
+                  <p className="text-gray-600 text-lg">
+                    Email:{" "}
+                    <span className="font-semibold">
+                      {book.sellerEmail || "N/A"}
+                    </span>
+                  </p>
+                  <p className="text-gray-600 text-lg">
+                    Phone:{" "}
+                    <span className="font-semibold">
+                      {book.sellerPhone || "N/A"}
+                    </span>
+                  </p>
                 </div>
+
                 <div className="bg-gray-100 p-6 rounded-2xl">
                   <h3 className="text-2xl font-semibold mb-3 text-gray-800">
                     Buyer Details
@@ -63,6 +77,14 @@ export default function Report() {
                   <p className="text-gray-600 text-lg">
                     Name:{" "}
                     <span className="font-semibold">{book.buyerName}</span>
+                  </p>
+                  <p className="text-gray-600 text-lg">
+                    Email:{" "}
+                    <span className="font-semibold">{book.buyerEmail}</span>
+                  </p>
+                  <p className="text-gray-600 text-lg">
+                    Phone:{" "}
+                    <span className="font-semibold">{book.buyerPhone}</span>
                   </p>
                 </div>
               </div>

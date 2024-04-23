@@ -16,8 +16,13 @@ router.get("/", async (req, res) => {
     for (const book of soldBooks) {
       report.push({
         title: book.title,
+        cost: book.cost,
         sellerName: book.sellerName,
+        sellerEmail: book.sellerEmail,
+        sellerPhone: book.sellerPhone,
         buyerName: book.buyerName,
+        buyerEmail: book.buyerEmail,
+        buyerPhone: book.buyerPhone,
       });
     }
 
