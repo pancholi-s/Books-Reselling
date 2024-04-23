@@ -31,10 +31,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  background-color: rgb(155, 243, 255);
-}
-
 html::-webkit-scrollbar {
   width: 1rem;
 }

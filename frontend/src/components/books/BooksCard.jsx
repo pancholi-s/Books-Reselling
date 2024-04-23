@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { BsInfoCircle } from 'react-icons/bs';
 import BookSingleCard from './BookSingleCard';
 
 const BooksCard = ({ books }) => {
