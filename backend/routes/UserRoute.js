@@ -10,7 +10,7 @@ const JWT_SECRET = "secret"; // Secret key from the .env file
 
 // Register a new user
 router.post("/register", async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, name, phone } = req.body;
 
   try {
     // Check if the user already exists
@@ -30,6 +30,8 @@ router.post("/register", async (req, res) => {
     const newUser = new User({
       email,
       password: hashedPassword,
+      name,
+      phone,
     });
 
     // Save the user to the database
@@ -92,6 +94,26 @@ router.post("/login", async (req, res) => {
     res.status(500).json({
       success: false,
       error: "Error in logging in the user",
+    });
+  }
+});
+
+// Get user data
+router.get("/user/", async (req, res) => {
+  try {
+    // Get the user Id from the jwt token received in the headers
+    const token = req.header("Authorization").replace("Bearer ", "");
+    const decoded = jwt.verify(token, JWT_SECRET);
+    const userId = decoded.user.id;
+
+    // Get the user details
+    const user = await User.findById(userId).select("-password");
+
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      error: "Error in getting the user",
     });
   }
 });

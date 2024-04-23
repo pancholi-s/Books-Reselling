@@ -1,5 +1,9 @@
 import express from "express";
 import { Book } from "../models/bookModel.js";
+import { User } from "../models/User.js";
+
+import jwt from "jsonwebtoken";
+const JWT_SECRET = "secret"; // Secret key from the .env file
 
 const router = express.Router();
 
@@ -131,6 +135,44 @@ router.delete("/:id", async (request, response) => {
     }
 
     return response.status(200).send({ message: "Book deleted successfully" });
+  } catch (error) {
+    console.log(error.message);
+    response.status(500).send({ message: error.message });
+  }
+});
+
+// Router when user buys a book
+router.get("/buy/:id", async (request, response) => {
+  try {
+    const { id } = request.params;
+
+    // Get the user Id from the jwt token received in the headers
+    const token = request.header("Authorization").replace("Bearer ", "");
+    const decoded = jwt.verify(token, JWT_SECRET);
+    const userId = decoded.user.id;
+
+    // Get the user details
+    const user = await User.findById(userId).select("-password");
+    const buyerName = user.name;
+    const buyerEmail = user.email;
+    const buyerPhone = user.phone;
+
+    const result = await Book.findByIdAndUpdate(
+      id,
+      {
+        isSold: true,
+        buyerName,
+        buyerEmail,
+        buyerPhone,
+      },
+      { new: true }
+    );
+
+    if (!result) {
+      return response.status(404).json({ message: "Book not found" });
+    }
+
+    return response.status(200).send({ message: "Book sold successfully" });
   } catch (error) {
     console.log(error.message);
     response.status(500).send({ message: error.message });

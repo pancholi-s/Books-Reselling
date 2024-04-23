@@ -29,7 +29,6 @@ const bookSchema = mongoose.Schema(
     },
     isSold: {
       type: Boolean,
-      required: true,
       default: false,
     },
     cost: {
@@ -45,6 +44,18 @@ const bookSchema = mongoose.Schema(
       default: "Anonymous",
     },
     sellerPhone: {
+      type: Number,
+      default: 9988191289,
+    },
+    buyerName: {
+      type: String,
+      default: "Anonymous",
+    },
+    buyerEmail: {
+      type: String,
+      default: "Anonymous",
+    },
+    buyerPhone: {
       type: Number,
       default: 9988191289,
     },

@@ -20,30 +20,44 @@ const CreateBooks = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const handleSaveBook = () => {
-    const data = {
-      title,
-      author,
-      publishYear,
-      description,
-      coverImage,
-      cost,
-      sellerName,
-      sellerEmail,
-      sellerPhone,
-    };
-
-    setLoading(true);
     axios
-      .post("http://localhost:5555/books", data)
-      .then(() => {
-        setLoading(false);
-        enqueueSnackbar("Book Created successfully", { variant: "success" });
-        navigate("/");
+      .get("http://localhost:5555/auth/user", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
       })
-      .catch((error) => {
-        setLoading(false);
-        enqueueSnackbar("Error", { variant: "error" });
-        console.log(error);
+      .then((res) => {
+        console.log(res.data);
+        setSellerName(res.data.name);
+        setSellerEmail(res.data.email);
+        setSellerPhone(res.data.phone);
+
+        const data = {
+          title,
+          author,
+          publishYear,
+          description,
+          coverImage,
+          cost,
+          sellerName: res.data.name,
+          sellerEmail: res.data.email,
+          sellerPhone: res.data.phone,
+        };
+
+        axios
+          .post("http://localhost:5555/books", data)
+          .then(() => {
+            setLoading(false);
+            enqueueSnackbar("Book Created successfully", {
+              variant: "success",
+            });
+            navigate("/");
+          })
+          .catch((error) => {
+            setLoading(false);
+            enqueueSnackbar("Error", { variant: "error" });
+            console.log(error);
+          });
       });
   };
 
@@ -103,35 +117,6 @@ const CreateBooks = () => {
             type="number"
             value={cost}
             onChange={(e) => setCost(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2  w-full "
-          />
-        </div>
-        <div className="my-4">
-          <label className="text-xl mr-4 text-gray-500">Seller Name</label>
-          <input
-            type="text"
-            value={sellerName}
-            onChange={(e) => setSellerName(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2  w-full "
-          />
-        </div>
-        <div className="my-4">
-          <label className="text-xl mr-4 text-gray-500">Seller Email</label>
-          <input
-            type="text"
-            value={sellerEmail}
-            onChange={(e) => setSellerEmail(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2  w-full "
-          />
-        </div>
-        <div className="my-4">
-          <label className="text-xl mr-4 text-gray-500">
-            Seller Phone number
-          </label>
-          <input
-            type="number"
-            value={sellerPhone}
-            onChange={(e) => setSellerPhone(e.target.value)}
             className="border-2 border-gray-500 px-4 py-2  w-full "
           />
         </div>

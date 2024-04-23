@@ -16,7 +16,9 @@ export default function Featured() {
   }, []); // Empty array as the second argument to run the effect only once
 
   // Get featured books from the database
-  let featuredBooks = allBooks.filter((book) => book.isFeatured === true);
+  let featuredBooks = allBooks.filter(
+    (book) => book.isFeatured === true && !book.isSold
+  );
 
   return (
     <section className="featured" id="featured">

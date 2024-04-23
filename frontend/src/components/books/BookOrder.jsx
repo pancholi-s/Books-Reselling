@@ -31,10 +31,14 @@ function BookDetails() {
       "Are you sure you want to buy this book?"
     );
     if (isConfirmed) {
-      alert("Book bought successfully");
       try {
-        await axios.delete(`http://localhost:5555/books/${id}`);
+        await axios.get(`http://localhost:5555/books/buy/${id}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        });
         navigate("/books/buy");
+        alert("Book bought successfully");
       } catch (error) {
         console.log("Error buying book:", error);
       }

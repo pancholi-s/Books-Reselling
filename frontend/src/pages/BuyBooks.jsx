@@ -20,7 +20,10 @@ function BuyBooks() {
     axios
       .get("http://localhost:5555/books")
       .then((response) => {
-        setBooks(response.data.data);
+        const availableBooks = response.data.data.filter(
+          (book) => !book.isSold
+        );
+        setBooks(availableBooks);
         setLoading(false);
       })
       .catch((error) => {
