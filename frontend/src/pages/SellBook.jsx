@@ -73,17 +73,12 @@ export default function SellBook() {
               Welcome
             </h1>
             <p className="mb-8 text-2xl text-gray-600 text-center">
-              Please login or sign up to continue
+              Please login to continue!
             </p>
-            <div className="flex flex-col space-y-4">
+            <div className="flex justify-center">
               <Link to="/books/login">
                 <button className="btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-102">
                   Login
-                </button>
-              </Link>
-              <Link to="/books/signUp">
-                <button className="btn bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-102">
-                  Sign Up
                 </button>
               </Link>
             </div>
@@ -92,24 +87,6 @@ export default function SellBook() {
       </>
     );
   }
-  // return (
-  //   <div className="p-4">
-  //     {/* Centering the h1 within its parent container */}
-  //     <div className="flex justify-center my-8">
-  //       <h1 className="text-3xl">BOOKS LIST</h1>
-  //     </div>
-
-  //     {/* Adding a separate section for the Add button with justify-end */}
-  //     <div className="flex justify-end">
-  //       <Link to="/books/create">
-  //         <MdOutlineAddBox className="text-sky-800 text-4xl" />
-  //       </Link>
-  //     </div>
-
-  //     {/* The BooksCard component */}
-  //     {<BooksCard books={books} />}
-  //   </div>
-  // );
 
   return (
     <section className="featured" id="featured">

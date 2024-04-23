@@ -44,17 +44,12 @@ function BuyBooks() {
               Welcome
             </h1>
             <p className="mb-8 text-2xl text-gray-600 text-center">
-              Please login or sign up to continue
+              Please login to continue!
             </p>
-            <div className="flex flex-col space-y-4">
+            <div className="flex justify-center">
               <Link to="/books/login">
                 <button className="btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-102">
                   Login
-                </button>
-              </Link>
-              <Link to="/books/signUp">
-                <button className="btn bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-102">
-                  Sign Up
                 </button>
               </Link>
             </div>
