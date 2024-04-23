@@ -1,16 +1,30 @@
 import express from "express";
+import { Book } from "../models/bookModel.js";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("Reports Route");
+router.get("/", async (req, res) => {
+  try {
+    let booksSold = 0;
+    let report = [];
+
+    // Find sold books
+    const soldBooks = await Book.find({ isSold: true });
+    booksSold = soldBooks.length;
+
+    // Prepare the report
+    for (const book of soldBooks) {
+      report.push({
+        title: book.title,
+        sellerName: book.sellerName,
+        buyerName: book.buyerName,
+      });
+    }
+
+    res.status(200).send({ report, booksSold });
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
 });
 
 export default router;
-
-// Things to do:
-// 1. Get more details when register
-// 2. The seller name, phone and email id should be fetched from jwt token
-// 3. Sell page whole scrap
-// 4. Add report page
-// 5. Add report route
