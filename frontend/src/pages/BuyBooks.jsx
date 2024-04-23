@@ -38,18 +38,27 @@ function BuyBooks() {
   if (!authToken) {
     return (
       <>
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-          <p className="mb-4 text-lg text-gray-700">Please login first</p>
-          <Link to="/books/login" className="mb-2">
-            <button className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              Login
-            </button>
-          </Link>
-          <Link to="/books/signUp">
-            <button className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              Sign Up
-            </button>
-          </Link>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500 to-purple-700">
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+              Welcome
+            </h1>
+            <p className="mb-8 text-2xl text-gray-600 text-center">
+              Please login or sign up to continue
+            </p>
+            <div className="flex flex-col space-y-4">
+              <Link to="/books/login">
+                <button className="btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-102">
+                  Login
+                </button>
+              </Link>
+              <Link to="/books/signUp">
+                <button className="btn bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-102">
+                  Sign Up
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       </>
     );
