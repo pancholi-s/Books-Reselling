@@ -30,16 +30,7 @@ function BuyBooks() {
   }, []);
 
   const handleBuy = async (bookId) => {
-    navigate(`/books/buy/${bookId}`); // Redirect to the buy page for the book
-    // const isConfirmed = window.confirm("Do you want to buy this book?");
-    // if (isConfirmed) {
-    //   try {
-    //     await axios.delete(`http://localhost:5555/books/${bookId}`);
-    //     setBooks(books.filter((book) => book._id !== bookId));
-    //   } catch (error) {
-    //     console.log("Error buying book:", error);
-    //   }
-    // }
+    navigate(`/books/buy/${bookId}`);
   };
   if (!authToken) {
     return (
