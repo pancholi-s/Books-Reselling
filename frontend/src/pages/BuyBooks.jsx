@@ -60,10 +60,6 @@ function BuyBooks() {
   }
   return (
     <section className="featured" id="featured">
-      <h1 className="heading">
-        {" "}
-        <span>Books</span>{" "}
-      </h1>
       <div className="grid grid-cols-3 gap-4">
         {books.map((book) => {
           return (

@@ -91,6 +91,12 @@ export default function SellBook() {
   return (
     <section className="featured" id="featured">
       <div className="flex justify-end mb-4">
+        <Link to="/report">
+          <button className="btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded">
+            Report
+          </button>
+        </Link>
+          <span style={{ margin: "0 5px" }}></span>
         <Link to="/books/create">
           <button className="btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded">
             Create Book
@@ -119,9 +125,11 @@ export default function SellBook() {
                     <button className="btn" onClick={() => handleView(book._id)}>
                       View
                     </button>
+            <span style={{ margin: "0 5px" }}></span>
                     <button className="btn" onClick={() => handleEdit(book._id)}>
                       Edit
                     </button>
+            <span style={{ margin: "0 5px" }}></span>
                     <button className="btn" onClick={() => handleDelete(book._id)}>
                       Delete
                     </button>

@@ -20,9 +20,14 @@ export default function Header() {
     <>
       <header className="header">
         <div className="header-1">
-          <a href="#" className="logo">
-            <i className="fas fa-book"></i> PICTbooks
-          </a>
+        <a className="logo" style={{ display: 'flex', alignItems: 'center' }}>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtYcznHBSRE-t4ljLJnDN3D0Aec6I6LOxIIn_NRzZoFw&s"
+            alt="Logo"
+            style={{ width: "56px", height: "56px", marginRight: "7px" }} // Adjusted size and spacing
+          />
+          PICTbooks
+        </a>
 
           <form className="search-form" onSubmit={handleSearch}>
             <input

@@ -40,7 +40,7 @@ const Home = () => {
       <Featured />
       {/* <Category /> */}
       <Review />
-      <Footer />
+      {/* <Footer /> */}
 
       {/* {loading ? (
         <Spinner />

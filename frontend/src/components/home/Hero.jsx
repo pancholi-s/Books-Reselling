@@ -38,7 +38,7 @@ export default function Hero() {
             <a href="http://localhost:5173/books/buy/" className="btn">
               Buy
             </a>
-            <span style={{ margin: "0 10px" }}></span>
+            <span style={{ margin: "0 5px" }}></span>
             <a href="http://localhost:5173/books/sell" className="btn">
               Sell
             </a>
