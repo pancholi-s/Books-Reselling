@@ -90,9 +90,6 @@ export default function SellBook() {
 
   return (
     <section className="featured" id="featured">
-      <h1 className="heading">
-        <span>Books</span>
-      </h1>
       <div className="flex justify-end mb-4">
         <Link to="/books/create">
           <button className="btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded">
