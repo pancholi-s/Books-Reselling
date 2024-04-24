@@ -21,7 +21,7 @@ const bookSchema = mongoose.Schema(
     isFeatured: {
       type: Boolean,
       required: true,
-      default: false,
+      default: true,
     },
     coverImage: {
       type: String,

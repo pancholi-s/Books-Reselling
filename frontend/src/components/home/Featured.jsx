@@ -7,15 +7,12 @@ export default function Featured() {
   const [allBooks, setAllBooks] = useState([]); // [state, function] = useState(initialState)
 
   useEffect(() => {
-    // Call axios api go get all books from the api
-    // and display them in the slider
     axios.get("http://localhost:5555/books").then((response) => {
       console.log(response.data.data);
       setAllBooks(response.data.data);
     });
-  }, []); // Empty array as the second argument to run the effect only once
+  }, []);
 
-  // Get featured books from the database
   let featuredBooks = allBooks.filter(
     (book) => book.isFeatured === true && !book.isSold
   );

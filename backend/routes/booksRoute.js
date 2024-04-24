@@ -10,17 +10,6 @@ const router = express.Router();
 // Route for Save a new Book
 router.post("/", async (request, response) => {
   try {
-    // if (
-    //   !request.body.title ||
-    //   !request.body.author ||
-    //   !request.body.publishYear ||
-    //   !request.body.description ||
-    //   !request.body.coverImage
-    // ) {
-    //   return response.status(400).send({
-    //     message: "Send all required fields: title, author, publishYear",
-    //   });
-    // }
     const newBook = {
       title: request.body.title,
       author: request.body.author,
